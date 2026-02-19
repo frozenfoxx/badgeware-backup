@@ -102,8 +102,9 @@ validate_backup_file() {
 # Detect the file format from its extension and set FORMAT / FILESIZE.
 resolve_file_format() {
     FILESIZE=$(stat -f%z "$BACKUP_FILE" 2>/dev/null || stat -c%s "$BACKUP_FILE" 2>/dev/null)
-    local ext="${BACKUP_FILE##*.}"
-    case "${ext,,}" in
+    local ext
+    ext="$(echo "${BACKUP_FILE##*.}" | tr '[:upper:]' '[:lower:]')"
+    case "$ext" in
         uf2) FORMAT="uf2" ;;
         bin) FORMAT="bin" ;;
         *)
@@ -180,7 +181,7 @@ while [[ $# -gt 0 ]]; do
     case "$1" in
         --list)       list_backups ;;
         --no-reboot)  NO_REBOOT=true; shift ;;
-        -b)           shift; BOARD="${1,,}"; shift ;;  # normalise to lowercase
+        -b)           shift; BOARD="$(echo "$1" | tr '[:upper:]' '[:lower:]')"; shift ;;  # normalise to lowercase
         -h|--help)    usage ;;
         -*)           error "Unknown option: $1 (see -h for usage)" ;;
         *)            BACKUP_FILE="$1"; shift ;;

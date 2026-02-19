@@ -143,7 +143,7 @@ report_success() {
 
 while getopts "b:rd:h" opt; do
     case "$opt" in
-        b) BOARD="${OPTARG,,}" ;;   # normalise to lowercase
+        b) BOARD="$(echo "$OPTARG" | tr '[:upper:]' '[:lower:]')" ;;   # normalise to lowercase
         r) RAW_MODE=true ;;
         d) BACKUP_DIR="$OPTARG" ;;
         h) usage ;;
