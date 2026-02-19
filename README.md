@@ -1,6 +1,10 @@
 # badgeware-backup
 
+[![build](https://github.com/frozenfoxx/badgeware-backup/actions/workflows/build.yml/badge.svg)](https://github.com/frozenfoxx/badgeware-backup/actions/workflows/build.yml)
+
 Simple scripts to back up and restore the flash contents of [Badgwa.re](https://badgewa.re/) badges.
+
+Docker Hub: [https://hub.docker.com/r/frozenfoxx/badgeware-backup](https://hub.docker.com/r/frozenfoxx/badgeware-backup)
 
 ## Supported Badges
 
