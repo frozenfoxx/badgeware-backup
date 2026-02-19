@@ -139,13 +139,6 @@ docker build -t badgeware-backup:latest .
 ### CI / Docker Hub
 
 The image is built and pushed automatically via GitHub Actions on every push to `main` and on version tags (`v*`). Multi-platform builds (`linux/amd64` and `linux/arm64`) are produced using QEMU and Docker Buildx.
-  
-Two repository secrets are required in GitHub:
-
-| Secret | Value |
-|---|---|
-| `DOCKER_HUB_USERNAME` | Your Docker Hub username |
-| `DOCKER_HUB_ACCESS_TOKEN` | A Docker Hub access token with read/write scope |
 
 ## Contribution
 
